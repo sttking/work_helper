@@ -1,0 +1,63 @@
+{
+  "AICFO": [
+    { "name": "next_page", "desc": "페이지 이동 처리 노드" },
+    { "name": "checkpoint", "desc": "금융질의 여부 확인 노드" },
+    { "name": "isapi", "desc": "API 여부 판별 노드" },
+    { "name": "commander", "desc": "테이블 결정하는 노드" },
+    { "name": "funk", "desc": "API 함수 선택 노드" },
+    { "name": "params", "desc": "API 함수 파라미터 선택 노드" },
+    { "name": "yqmd", "desc": "날짜 처리 노드" },
+    { "name": "opendue", "desc": "개설일 날짜 처리 노드" },
+    { "name": "dater", "desc": "날짜 변환/처리 노드" },
+    { "name": "nl2sql", "desc": "자연어를 SQL로 변환하는 노드" },
+    { "name": "executor", "desc": "SQL 실행 및 상태 체크 노드" },
+    { "name": "safeguard", "desc": "에러 시 쿼리 재시도 노드" },
+    { "name": "respondent", "desc": "답변 생성 노드" },
+    { "name": "nodata", "desc": "데이터가 없을 경우 답변 생성 노드" },
+    { "name": "killjoy", "desc": "일상 대화 대응 노드" }
+  ],
+  "BranchQ": [
+    { "name": "next_page", "desc": "페이지 이동 처리 노드" },
+    { "name": "checkpoint", "desc": "금융질의 여부 확인 노드" },
+    { "name": "isapi", "desc": "API 여부 판별 노드" },
+    { "name": "commander", "desc": "처리 경로를 결정하는 노드" },
+    { "name": "funk", "desc": "API 함수 선택 노드" },
+    { "name": "params", "desc": "API 함수 파라미터 선택 노드" },
+    { "name": "yqmd", "desc": "날짜 처리 노드" },
+    { "name": "opendue", "desc": "개설일 날짜 처리 노드" },
+    { "name": "dater", "desc": "날짜 변환/처리 노드" },
+    { "name": "nl2sql", "desc": "자연어를 SQL로 변환하는 노드" },
+    { "name": "executor", "desc": "SQL 실행 및 상태 체크 노드" },
+    { "name": "safeguard", "desc": "에러 시 쿼리 재시도 노드" },
+    { "name": "respondent", "desc": "답변 생성 노드" },
+    { "name": "nodata", "desc": "데이터가 없을 경우 답변 생성 노드" },
+    { "name": "killjoy", "desc": "일상 대화 대응 노드" }
+  ],
+  "SEAH": [
+    { "name": "classify", "desc": "스키마 분류 노드" },
+    { "name": "split_question", "desc": "질문 분리 노드" },
+    { "name": "pop_question", "desc": "질문 큐에서 꺼내는 노드" },
+    { "name": "nl2dsl", "desc": "자연어를 DSL로 변환 노드" },
+    { "name": "dsl2sql", "desc": "DSL을 SQL로 변환 노드" },
+    { "name": "run_sql", "desc": "SQL 실행 노드" },
+    { "name": "postprocess_checker", "desc": "후처리 필요 여부 판단 노드" },
+    { "name": "duckdb_postprocess", "desc": "DuckDB 후처리 노드" }
+  ],
+  "서울페이": [
+    { "name": "next_page", "desc": "페이지 이동 처리 노드" },
+    { "name": "checkpoint", "desc": "금융질의 여부 확인 노드" },
+    { "name": "commander", "desc": "테이블 결정하는 노드" },
+    { "name": "nl2sql", "desc": "자연어를 SQL로 변환하는 노드" },
+    { "name": "executor", "desc": "SQL 실행 및 상태 체크 노드" },
+    { "name": "safeguard", "desc": "에러 시 쿼리 재시도 노드" },
+    { "name": "respondent", "desc": "답변 생성 노드" },
+    { "name": "nodata", "desc": "데이터가 없을 경우 답변 생성 노드" },
+    { "name": "killjoy", "desc": "일상 대화 대응 노드" }
+  ],
+  "QVC": [
+    { "name": "nl2sql", "desc": "자연어를 SQL로 변환하는 노드" },
+    { "name": "executor", "desc": "SQL 실행 및 상태 체크 노드" },
+    { "name": "executor_like", "desc": "LIKE 쿼리 실행 노드" },
+    { "name": "respondent", "desc": "답변 생성 노드" }
+  ]
+}

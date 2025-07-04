@@ -1,0 +1,166 @@
+[
+  {
+    "name": "AICFO",
+    "sub": "웹케시 상품",
+    "agentDev": {
+      "url": "https://aicfo-pc.daquv.com/",
+      "accounts": [{ "id": "supernova@webcash.co.kr", "pw": "webcash1!" }]
+    },
+    "agentOp": {
+      "url": "https://aicfopc.webcashaicfo.com/",
+      "accounts": [{ "id": "supernova@webcash.co.kr", "pw": "webcash1!" }]
+    },
+    "adminDev": {
+      "url": "https://aicfoprm-dev.appplay.co.kr/",
+      "accounts": [{ "id": "bw0420", "pw": "bw0420" }]
+    },
+    "adminOp": {
+      "url": "https://aicfoprm.webcashaicfo.com/",
+      "accounts": [
+        { "id": "daquv_admin", "pw": "Daquv!@#123" },
+        { "id": "novateam", "pw": "webcash1!" }
+      ]
+    },
+    "dbDev": {
+      "user": "daquv",
+      "password": "daquv123!@()",
+      "host": "dev.daquv.com",
+      "port": "5432",
+      "database": "webcash"
+    },
+    "dbOp": {
+      "user": "cboarddev",
+      "password": "cboarddev123",
+      "host": "172.27.111.18",
+      "port": "54313",
+      "database": "cbboarddevdb"
+    }
+  },
+  {
+    "name": "BranchQ",
+    "sub": "웹케시상품",
+    "agentDev": {
+      "url": "https://aibranch-dev.aiwebcash.co.kr/pc/login",
+      "accounts": [{ "id": "etking7@naver.com", "pw": "pncsoft1!" }]
+    },
+    "agentOp": {
+      "url": "",
+      "accounts": []
+    },
+    "adminDev": {
+      "url": "https://aibranch-dev.aiwebcash.co.kr/prm",
+      "accounts": [
+        { "id": "daquv_admin", "pw": "Daquv!@#123" },
+        { "id": "novateam", "pw": "webcash1!" }
+      ]
+    },
+    "adminOp": {
+      "url": "",
+      "accounts": []
+    },
+    "dbDev": {
+      "user": "aisaasagentdev",
+      "password": "aisaasagentdev123",
+      "host": "172.27.111.86",
+      "port": "54315",
+      "database": "aisaasdevdb"
+    },
+    "dbOp": {
+      "user": "",
+      "password": "",
+      "host": "",
+      "port": "",
+      "database": ""
+    }
+  },
+  {
+    "name": "SEAH",
+    "sub": "세아철강",
+    "agentDev": {
+      "url": "https://seahssdev.daquv.com/",
+      "accounts": [{ "id": "", "pw": "seah123!@()" }]
+    },
+    "agentOp": {
+      "url": "",
+      "accounts": [{ "id": "", "pw": "" }]
+    },
+    "adminDev": {
+      "url": "",
+      "accounts": [{ "id": "", "pw": "" }]
+    },
+    "adminOp": {
+      "url": "",
+      "accounts": [{ "id": "", "pw": "" }]
+    },
+    "dbDev": {
+      "user": "bigquery",
+      "password": "key.json",
+      "project": "local-llm-poc",
+      "port": "",
+      "database": "css_daquv"
+    }
+  },
+  {
+    "name": "서울페이",
+    "sub": "서울페이 slp",
+    "agentDev": {
+      "url": "https://dev-seoul-ai.bizplay.co.kr/chat",
+      "accounts": [{ "id": "seoul01", "pw": "qwer1234!" }]
+    },
+    "agentOp": {
+      "url": "https://seoul-ai-agent.bizplay.co.kr/chat",
+      "accounts": [{ "id": "seoul01", "pw": "qwer1234!" }]
+    },
+    "adminDev": {
+      "url": "https://dev-seoul-agent-admin.bizplay.co.kr",
+      "accounts": [
+        { "id": "daquv_master", "pw": "Daquv!@#123" },
+        { "id": "seoul01", "pw": "qwer1234!" }
+      ]
+    },
+    "adminOp": {
+      "url": "https://seoul-ai-agent-admin.bizplay.co.kr/",
+      "accounts": [
+        { "id": "daquv_master", "pw": "Daquv!@#123" },
+        { "id": "seoul01", "pw": "qwer1234!" }
+      ]
+    },
+    "dbOp": {
+      "user": "slpown",
+      "password": "daquv123!@#",
+      "host": "172.16.4.61",
+      "port": "5444",
+      "database": "devslpdb"
+    }
+  },
+  {
+    "name": "QVC",
+    "sub": "웹케시 crm상품",
+    "agentDev": {
+      "url": "",
+      "accounts": [{ "id": "", "pw": "" }]
+    },
+    "agentOp": {
+      "url": "https://qv.daquv.com/login",
+      "accounts": [{ "id": "qv_id", "pw": "qv_pw" }]
+    },
+    "adminDev": {
+      "url": "",
+      "accounts": [{ "id": "", "pw": "" }]
+    },
+    "adminOp": {
+      "url": "https://webcash-qvcadmin.daquv.com/",
+      "accounts": [
+        { "id": "daquv_admin", "pw": "Daquv!@#123" },
+        { "id": "qv_id", "pw": "qv_pw" }
+      ]
+    },
+    "dbOp": {
+      "user": "daquv",
+      "password": "daquv123!@()",
+      "host": "dev.daquv.com",
+      "port": "5432",
+      "database": "webcash"
+    }
+  }
+]

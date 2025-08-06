@@ -86,17 +86,6 @@ export default function Mainpage3() {
     }
   }
 
-  function handleInputKey(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  }
-
-  // Layout constants
-  const maxWidth = "1400px";
-  const inputHeight = 88; // px, matches py-5 + px-8 + border
-
   // --- UI ---
   return (
     <section

@@ -3,6 +3,7 @@ import LeftSidebar from "./components/ui/LeftSidebar";
 import MainPage from "./pages/MainPage";
 import MainPage2 from "./pages/MainPage2";
 import MainPage3 from "./pages/Mainpage3";
+import MainPage4 from "./pages/MainPage4";
 import { useState } from "react";
 
 function App() {
@@ -22,8 +23,10 @@ function App() {
             <MainPage />
           ) : selectedMenu === 1 ? (
             <MainPage2 />
-          ) : (
+          ) : selectedMenu === 2 ? (
             <MainPage3 />
+          ) : (
+            <MainPage4 />
           )}
         </main>
       </div>

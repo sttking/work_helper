@@ -1,4 +1,4 @@
-const menus = ["JSON 변환", "서비스별 정보", "JARVIS"];
+const menus = ["JSON 변환", "서비스별 정보", "JARVIS", "sql2dsl"];
 
 interface LeftSidebarProps {
   selectedIndex: number;

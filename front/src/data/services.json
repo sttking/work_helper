@@ -74,6 +74,43 @@
     }
   },
   {
+    "name": "Cloudbranch",
+    "sub": "농협브랜치",
+    "agentDev": {
+      "url": "https://cloudbranchq-dev.aiwebcash.co.kr/pc",
+      "accounts": [{ "id": "bogi772@gmail.com", "pw": "webcash1!" }]
+    },
+    "agentOp": {
+      "url": "",
+      "accounts": []
+    },
+    "adminDev": {
+      "url": "https://cloudbranchq-dev.aiwebcash.co.kr/prm/main/llmadmin",
+      "accounts": [
+        { "id": "bw0420", "pw": "bw0420" },
+        { "id": "daquv_master", "pw": "Daquv!@#123" }
+      ]
+    },
+    "adminOp": {
+      "url": "",
+      "accounts": []
+    },
+    "dbDev": {
+      "user": "",
+      "password": "",
+      "host": "",
+      "port": "",
+      "database": ""
+    },
+    "dbOp": {
+      "user": "",
+      "password": "",
+      "host": "",
+      "port": "",
+      "database": ""
+    }
+  },
+  {
     "name": "SEAH",
     "sub": "세아철강",
     "agentDev": {

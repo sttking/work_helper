@@ -1,0 +1,210 @@
+[
+  {
+    "question": "수시 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": ["total_trsc_amount"],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "trsc__note1",
+          "trsc__in_out_dv"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '수시' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-trsc__trsc_dt", "-trsc__trsc_tm", "-total_trsc_amount"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화 계좌 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": ["total_trsc_amount"],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "trsc__note1",
+          "trsc__in_out_dv",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '수시' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-trsc__trsc_dt", "-trsc__trsc_tm", "-total_trsc_amount"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "예적금 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": ["total_trsc_amount"],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "trsc__note1",
+          "trsc__in_out_dv"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '예적금' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-trsc__trsc_dt", "-trsc__trsc_tm", "-total_trsc_amount"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화 예적금 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": ["total_trsc_amount"],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "trsc__note1",
+          "trsc__in_out_dv",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '예적금' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-trsc__trsc_dt", "-trsc__trsc_tm", "-total_trsc_amount"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "대출 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": [
+          "total_loan_trsc_amt",
+          "total_loan_intr_amt",
+          "avg_trsc_intr_rate"
+        ],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '대출' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": [
+          "-trsc__trsc_dt",
+          "-trsc__trsc_tm",
+          "-total_loan_trsc_amt"
+        ],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화 대출 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": [
+          "total_loan_trsc_amt",
+          "total_loan_intr_amt",
+          "avg_trsc_intr_rate"
+        ],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '대출' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": [
+          "-trsc__trsc_dt",
+          "-trsc__trsc_tm",
+          "-total_loan_trsc_amt"
+        ],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "증권계좌 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": ["total_trsc_amount"],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "trsc__stock_trsc_type",
+          "trsc__stock_nm"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '증권' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-trsc__trsc_dt", "-trsc__trsc_tm", "-total_trsc_amount"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화증권계좌 거래내역",
+    "dsl": {
+      "trsc": {
+        "metrics": ["total_trsc_amount"],
+        "group_by": [
+          "trsc__trsc_dt",
+          "trsc__trsc_tm",
+          "acct__bank_nm",
+          "acct__acct_no",
+          "trsc__stock_trsc_type",
+          "trsc__stock_nm",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('trsc__trsc_dt') >= '2025-04-17' }}",
+          "{{ TimeDimension('trsc__trsc_dt') <= '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '증권' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-trsc__trsc_dt", "-trsc__trsc_tm", "-total_trsc_amount"],
+        "limit": null
+      }
+    }
+  }
+]

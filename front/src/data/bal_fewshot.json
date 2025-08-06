@@ -1,0 +1,173 @@
+[
+  {
+    "question": "수시잔액",
+    "dsl": {
+      "bal": {
+        "metrics": ["total_acct_bal_amt"],
+        "group_by": ["acct__bank_nm", "bal__acct_dv", "acct__acct_no"],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '수시' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화 계좌 잔액",
+    "dsl": {
+      "bal": {
+        "metrics": ["total_acct_bal_amt"],
+        "group_by": [
+          "acct__bank_nm",
+          "bal__acct_dv",
+          "acct__acct_no",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '수시' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "예적금 잔액",
+    "dsl": {
+      "bal": {
+        "metrics": ["total_acct_bal_amt"],
+        "group_by": [
+          "acct__bank_nm",
+          "bal__acct_dv",
+          "acct__acct_no",
+          "bal__open_dt",
+          "bal__due_dt",
+          "bal__intr_rate"
+        ],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '예적금' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화 예적금 계좌 잔액",
+    "dsl": {
+      "bal": {
+        "metrics": ["total_acct_bal_amt"],
+        "group_by": [
+          "acct__bank_nm",
+          "bal__acct_dv",
+          "acct__acct_no",
+          "bal__open_dt",
+          "bal__due_dt",
+          "bal__intr_rate",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '예적금' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "대출잔액",
+    "dsl": {
+      "bal": {
+        "metrics": ["total_acct_bal_amt"],
+        "group_by": [
+          "acct__bank_nm",
+          "bal__acct_dv",
+          "acct__acct_no",
+          "bal__open_dt",
+          "bal__due_dt",
+          "bal__intr_rate"
+        ],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '대출' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화 대출잔액",
+    "dsl": {
+      "bal": {
+        "metrics": ["total_acct_bal_amt"],
+        "group_by": [
+          "acct__bank_nm",
+          "bal__acct_dv",
+          "acct__acct_no",
+          "bal__open_dt",
+          "bal__due_dt",
+          "bal__intr_rate",
+          "acct__curr_cd"
+        ],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '대출' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "증권계좌 잔액",
+    "dsl": {
+      "bal": {
+        "metrics": [
+          "total_deposit_amt",
+          "total_appr_amt",
+          "total_acct_bal_amt"
+        ],
+        "group_by": ["acct__bank_nm", "acct__acct_no"],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '증권' }}",
+          "{{ Dimension('acct__curr_cd') = 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  },
+  {
+    "question": "외화증권계좌 잔액",
+    "dsl": {
+      "bal": {
+        "metrics": [
+          "total_deposit_amt",
+          "total_appr_amt",
+          "total_acct_bal_amt"
+        ],
+        "group_by": ["acct__bank_nm", "acct__acct_no", "acct__curr_cd"],
+        "filters": [
+          "{{ TimeDimension('bal__reg_dt') = '2025-05-17' }}",
+          "{{ Dimension('acct__view_dv') = '증권' }}",
+          "{{ Dimension('acct__curr_cd') != 'KRW' }}"
+        ],
+        "order_by": ["-total_acct_bal_amt"],
+        "limit": null
+      }
+    }
+  }
+]

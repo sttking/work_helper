@@ -1,0 +1,195 @@
+semantic_models:
+  - name: trsc
+    model: ref('fct_trsc')
+    description: 금융 계좌의 거래 내역을 관리하는 semantic 모델. 입출금, 대출 거래, 주식 거래 등 다양한 거래 유형의 정보를 포함
+    defaults:
+      agg_time_dimension: trsc_dt
+
+    entities:
+      - name: trsc
+        type: primary
+      - name: acct
+        type: foreign
+        expr: acct
+
+    dimensions:
+      - name: acct_dv
+        type: categorical
+        description: 상품명. 검색은 like 검색이 기본
+      - name: seq_no
+        type: categorical
+        description: 거래순번
+      - name: trsc_dt
+        type: time
+        expr: TO_DATE(CAST(trsc_dt AS TEXT), 'YYYYMMDD')
+        type_params:
+          time_granularity: day
+        description: 거래일자, YYYY-MM-DD 형식으로 표현해 주세요. 기본 시간값. 예시) "거래내역 보여줘" => reg_dt = today-30 ~ today (디폴트 한달), "25년 1분기 잔액 얼마야?" => reg_dt = 20250101 ~ 20250331  *기간일 경우 해당 기간 전체 조회
+      - name: trsc_tm
+        type: categorical
+        description: 거래시간
+      - name: in_out_dv
+        type: categorical
+        description: 입출금구분. 가능한 값 = [입금, 출금]. 사용자의 발화에 입금/출금 관련 내용이 있으면 group_by에 넣어주세요.
+      - name: note1
+        type: categorical
+        description: 거래처/적요/메모. 기업명, 개인명, 거래처명, 메모 등 다양한 텍스트가 포함될 수 있음. 무조건 like 검색으로 처리해야 함. 예시) 웹케시에서 입금된거 있어?, 웹케시로 출금된거 있어? = note1 like '%웹케시%' 조건
+      - name: stock_nm
+        type: categorical
+        description: 종목명
+      - name: stock_trsc_type
+        type: categorical
+        description: 증권거래구분
+
+    measures:
+      - name: trsc_amount
+        description: 거래금액
+        expr: trsc_amt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: avg_trsc_amt
+        description: 평균 거래금액
+        expr: trsc_amt
+        agg: average
+        agg_time_dimension: trsc_dt
+      - name: trsc_balance
+        description: 잔액
+        expr: trsc_bal
+        agg: average
+        agg_time_dimension: trsc_dt
+      - name: fee_amount
+        description: 수수료
+        expr: fee_amt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: loan_trsc_amount
+        description: 대출상환금액
+        expr: loan_trsc_amt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: trsc_intr_rate
+        description: 이자율
+        expr: intr_rate
+        agg: average
+        agg_time_dimension: trsc_dt
+      - name: loan_intr_amount
+        description: 이자납부액
+        expr: loan_intr_amt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: item_quantity
+        description: 수량
+        expr: item_qunt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: pres_quantity
+        description: 금잔수량
+        expr: pres_qunt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: pres_amount
+        description: 금잔금액
+        expr: pres_amt
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: trsc_count
+        description: 거래 건수
+        expr: 1
+        agg: sum
+        agg_time_dimension: trsc_dt
+      - name: trsc_amount_in
+        description: 입금금액
+        expr: (CASE WHEN in_out_dv = '입금' THEN trsc_amt ELSE 0 END)
+        agg: sum
+      - name: trsc_amount_out
+        description: 출금금액
+        expr: (CASE WHEN in_out_dv = '출금' THEN trsc_amt ELSE 0 END)
+        agg: sum
+      - name: trsc_count_in
+        description: 입금건수
+        expr: (CASE WHEN in_out_dv = '입금' THEN 1 ELSE 0 END)
+        agg: sum
+      - name: trsc_count_out
+        description: 출금건수
+        expr: (CASE WHEN in_out_dv = '출금' THEN 1 ELSE 0 END)
+        agg: sum
+
+metrics:
+  - name: total_trsc_amt
+    description: 총 거래금액
+    type: simple
+    label: total_trsc_amt
+    type_params:
+      measure: trsc_amount
+  - name: total_trsc_balance
+    description: 총 거래금액
+    type: simple
+    label: total_trsc_balance
+    type_params:
+      measure: trsc_balance
+  - name: total_fee_amt
+    description: 총 수수료
+    type: simple
+    label: total_fee_amt
+    type_params:
+      measure: fee_amount
+  - name: total_loan_trsc_amt
+    description: 총 대출상환금액
+    type: simple
+    label: total_loan_trsc_amt
+    type_params:
+      measure: loan_trsc_amount
+  - name: total_loan_intr_amt
+    description: 총 이자납부액
+    type: simple
+    label: total_loan_intr_amt
+    type_params:
+      measure: loan_intr_amount
+  - name: avg_trsc_intr_rate
+    description: 평균 이자율
+    type: simple
+    label: avg_trsc_intr_rate
+    type_params:
+      measure: trsc_intr_rate
+  - name: total_pres_amt
+    description: 총 금잔금액
+    type: simple
+    label: total_pres_amt
+    type_params:
+      measure: pres_amount
+  - name: total_trsc_count
+    description: 총 거래 건수
+    type: simple
+    label: total_trsc_count
+    type_params:
+      measure: trsc_count
+  - name: avg_trsc_amt
+    description: 평균 거래금액
+    type: simple
+    label: avg_trsc_amt
+    type_params:
+      measure: avg_trsc_amt
+  - name: total_trsc_amt_in
+    description: 총 입금금액
+    type: simple
+    label: total_trsc_amt_in
+    type_params:
+      measure: trsc_amount_in
+  - name: total_trsc_amt_out
+    description: 총 출금금액
+    type: simple
+    label: total_trsc_amt_out
+    type_params:
+      measure: trsc_amount_out
+  - name: total_trsc_count_in
+    description: 총 입금건수. 예시) "어제랑 오늘 입금된 내역 보여줘" -> 입금 건수를 명시하지 않았으므로 해당 metric을 사용하지 않습니다.
+    type: simple
+    label: total_trsc_count_in
+    type_params:
+      measure: trsc_count_in
+  - name: total_trsc_count_out
+    description: 총 출금건수
+    type: simple
+    label: total_trsc_count_out
+    type_params:
+      measure: trsc_count_out

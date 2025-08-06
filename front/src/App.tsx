@@ -1,9 +1,9 @@
 import Topbar from "./components/ui/Topbar";
 import LeftSidebar from "./components/ui/LeftSidebar";
 import MainPage from "./pages/MainPage";
-import MainPage2 from "./pages/MainPage2";
-import MainPage3 from "./pages/Mainpage3";
-import MainPage4 from "./pages/MainPage4";
+// import MainPage2 from "./pages/MainPage2";
+// import MainPage3 from "./pages/Mainpage3";
+// import MainPage4 from "./pages/MainPage4";
 import { useState } from "react";
 
 function App() {
@@ -16,10 +16,11 @@ function App() {
       />
       <div className="flex-1 flex flex-col min-h-screen">
         {" "}
-        // This is the culprit
+        {/* This is the culprit */}
         <Topbar />
         <main className="pt-14">
-          {selectedMenu === 0 ? (
+          {selectedMenu === 0 ? <MainPage /> : <MainPage />}
+          {/* {selectedMenu === 0 ? (
             <MainPage />
           ) : selectedMenu === 1 ? (
             <MainPage2 />
@@ -27,7 +28,7 @@ function App() {
             <MainPage3 />
           ) : (
             <MainPage4 />
-          )}
+          )} */}
         </main>
       </div>
     </div>

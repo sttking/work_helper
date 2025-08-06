@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   FiCopy,
   FiArrowRight,
-  FiCode,
   FiDatabase,
-  FiFileText,
   FiLoader,
   FiEye,
   FiChevronDown,

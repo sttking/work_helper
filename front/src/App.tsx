@@ -4,6 +4,7 @@ import MainPage from "./pages/MainPage";
 // import MainPage2 from "./pages/MainPage2";
 // import MainPage3 from "./pages/Mainpage3";
 // import MainPage4 from "./pages/MainPage4";
+import MainPage5 from "./pages/MainPage5";
 import { useState } from "react";
 
 function App() {
@@ -14,21 +15,12 @@ function App() {
         selectedIndex={selectedMenu}
         onMenuSelect={setSelectedMenu}
       />
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className="flex-1 flex flex-col min-h-screen md:ml-60">
         {" "}
         {/* This is the culprit */}
         <Topbar />
         <main className="pt-14">
-          {selectedMenu === 0 ? <MainPage /> : <MainPage />}
-          {/* {selectedMenu === 0 ? (
-            <MainPage />
-          ) : selectedMenu === 1 ? (
-            <MainPage2 />
-          ) : selectedMenu === 2 ? (
-            <MainPage3 />
-          ) : (
-            <MainPage4 />
-          )} */}
+          {selectedMenu === 0 ? <MainPage /> : <MainPage5 />}
         </main>
       </div>
     </div>
